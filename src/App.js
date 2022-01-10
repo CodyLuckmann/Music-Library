@@ -9,11 +9,10 @@ function App() {
     getAllSongs();
   }, [])
 
-  async function getAllsongs(){
+  async function getAllSongs(){
     let response = await axios.get('http://www.devcodecampmusiclibrary.com/api/music');
-    setSongs(response.data)
+    setSongs(response.data);
   }
 }
   
-
 export default App;
