@@ -7,6 +7,11 @@
 }
 
 .background{
-    background-color: blueviolet;
+    background-color:rgba(0, 255, 255, 0.432);
     opacity: 100%;
+}
+
+.table-font{
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
 }
