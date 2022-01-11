@@ -2,7 +2,7 @@
 const NavBar = (props) => {
     return ( 
         <div class='topnav'>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light"></nav>
+            <a class='text'>Home</a>
         </div>
      );
 }
