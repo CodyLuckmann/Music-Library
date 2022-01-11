@@ -15,3 +15,11 @@
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.topnav {
+    height: 40px;
+    background-color: darkblue;
+    padding: 1em;
+    margin: 1em;
+
+}
