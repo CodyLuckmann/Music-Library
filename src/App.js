@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './App.css';
 import DisplayMusic from './Components/DisplayMusic/DisplayMusic';
 
 function App() {
@@ -16,7 +17,10 @@ function App() {
   } 
   return(
     <div>
-      <DisplayMusic songs={songs}/>
+      <div className='border-box'>
+        <DisplayMusic songs={songs}/>
+      </div>
+      
     </div>
   )
 }
