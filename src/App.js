@@ -21,9 +21,10 @@ function App() {
         return foundSongs
       }
       else if (song.title.toLowerCase().includes(searchTerm.toLowerCase())){
-        return foundSongs
+        return true
       }
     })
+    return foundSongs
   }
 
   async function getAllSongs(){
