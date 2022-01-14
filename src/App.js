@@ -29,9 +29,17 @@ function App() {
   }
 
   async function createSong(newSong){
-    
+
     let response = await axios.post('http://127.0.0.1:8000/music/', newSong);
     if(response.status === 201){
+      await getAllSongs();
+    }
+  }
+
+  async function updateSong(){
+
+    let response = await axios.put('http://127.0.0.1:8000/music/int:pk/')
+    if(response.status ===200){
       await getAllSongs();
     }
   }
@@ -49,6 +57,7 @@ function App() {
       <div className='border-box' className='table-font'>
         <SearchBar filterSongs={filterSongs}/>
         <DisplayMusic songs={songs}/>
+        <h3 className='center'>Add Song</h3>
         <SongForm createSong={createSong}/>
       </div>
       
