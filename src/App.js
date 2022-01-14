@@ -28,6 +28,14 @@ function App() {
     return foundSongs
   }
 
+  async function createSong(newSong){
+    
+    let response = await axios.post('http://127.0.0.1:8000/music/', newSong);
+    if(response.status === 201){
+      await getAllSongs();
+    }
+  }
+
   async function getAllSongs(){
     let response = await axios.get('http://127.0.0.1:8000/music/');
     console.log(response)
@@ -41,7 +49,7 @@ function App() {
       <div className='border-box' className='table-font'>
         <SearchBar filterSongs={filterSongs}/>
         <DisplayMusic songs={songs}/>
-        <SongForm/>
+        <SongForm createSong={createSong}/>
       </div>
       
     </div>
