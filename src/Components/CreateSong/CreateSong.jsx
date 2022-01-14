@@ -10,6 +10,15 @@ const SongForm = (props) => {
 
     function handleSubmit(formEvent){
         formEvent.preventDefault();
+        let newSong = {
+            title: title,
+            album: album,
+            artist: artist,
+            genre: genre,
+            release_date: releaseDate,
+
+        }
+        props.createSong(newSong);
     }
 
     return (
