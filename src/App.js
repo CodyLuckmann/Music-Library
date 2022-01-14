@@ -4,6 +4,7 @@ import './App.css';
 import DisplayMusic from './Components/DisplayMusic/DisplayMusic';
 import SearchBar from './Components/SearchBar/SearchBar';
 import NavBar from './Components/NavBar/NavBar';
+import SongForm from './Components/CreateSong/CreateSong';
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
       <div className='border-box' className='table-font'>
         <SearchBar filterSongs={filterSongs}/>
         <DisplayMusic songs={songs}/>
+        <SongForm/>
       </div>
       
     </div>
