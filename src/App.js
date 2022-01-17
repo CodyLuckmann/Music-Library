@@ -17,16 +17,16 @@ function App() {
   //TODO: Write a filterSongs function and pass it down to the SearchBar component
   // HINT: look at Most Wanted filtering!
   // use searchTerm (from the SearchBar) to filter songs
-  function filterSongs(song){
-    let foundSongs = songs.filter(function(searchTerm){
+  function filterSongs(searchTerm){
+    let foundSongs = songs.filter(function(element){
       if(searchTerm ==''){
-        return foundSongs
+        return songs
       }
-      else if (song.title.toLowerCase().includes(searchTerm.toLowerCase())){
+      else if (element.title.toLowerCase().includes(searchTerm.toLowerCase())){
         return true
       }
     })
-    return foundSongs
+    setSongs(foundSongs)
   }
 
   async function createSong(newSong){
@@ -37,11 +37,19 @@ function App() {
     }
   }
 
-  async function updateSong(pk,newSong){
-
-    let response = await axios.put('http://127.0.0.1:8000/music/', pk, newSong)
+  async function updateSong(pk,updatedSong){
+  
+    let response = await axios.put(`http://127.0.0.1:8000/music/${pk}/`, updatedSong)
     if(response.status ===200){
-      await getAllSongs();
+      getAllSongs();
+    }
+  }
+
+  async function deleteSong(pk){
+  
+    let response = await axios.delete(`http://127.0.0.1:8000/music/${pk}/`)
+    if(response.status ===204){
+      getAllSongs();
     }
   }
 
@@ -57,7 +65,7 @@ function App() {
       </div>
       <div className='border-box' className='table-font'>
         <SearchBar filterSongs={filterSongs}/>
-        <DisplayMusic songs={songs}/>
+        <DisplayMusic songs={songs} getAllSong={getAllSongs} updateSong={updateSong} deleteSong={deleteSong} />
         <h3 className='center'>Add Song</h3>
         <SongForm createSong={createSong}/>
       </div>
