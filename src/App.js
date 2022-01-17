@@ -37,7 +37,7 @@ function App() {
     }
   }
 
-  async function updateSong(pk, newSong){
+  async function updateSong(pk,newSong){
 
     let response = await axios.put('http://127.0.0.1:8000/music/', pk, newSong)
     if(response.status ===200){
@@ -60,7 +60,6 @@ function App() {
         <DisplayMusic songs={songs}/>
         <h3 className='center'>Add Song</h3>
         <SongForm createSong={createSong}/>
-        <UpdateForm updateSong={updateSong}/>
       </div>
       
     </div>
