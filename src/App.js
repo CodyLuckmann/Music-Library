@@ -22,9 +22,10 @@ function App() {
       if(searchTerm ==''){
         return songs
       }
-      else if (element.title.toLowerCase().includes(searchTerm.toLowerCase())){
+      else if (element.title.toLowerCase().includes(searchTerm.toLowerCase()) || element.artist.toLowerCase().includes(searchTerm.toLowerCase()) || element.album.toLowerCase().includes(searchTerm.toLowerCase()) || element.genre.toLowerCase().includes(searchTerm.toLowerCase()) || element.release_date.toLowerCase().includes(searchTerm.toLowerCase())){
         return true
       }
+      
     })
     setSongs(foundSongs)
   }
