@@ -1,8 +1,20 @@
-import UpdateForm from "../UpdateSong/UpdateSong";
+import { useState } from "react";
+import UpdateSong from "../UpdateSong/UpdateSong";
+import axios from "axios";
 
 
 const DisplayMusic = (props) => {
+    const [edit,setEdit] = useState(false)
+    const [song,setSong] = useState('')
+
+    const showEdit =(songToUpdate)=>{
+        setSong(songToUpdate)
+        setEdit(true)
+    }
+
     return(
+        <>
+       
         <table className="table">
             <thead>
             <tr>
@@ -21,12 +33,18 @@ const DisplayMusic = (props) => {
                     <td>{song.album}</td>
                     <td>{song.artist}</td>
                     <td>{song.genre}</td>
-                    <td>{song.release_date}</td><button onClick={UpdateForm}>Edit</button><button type='submit'>Delete</button>
+                    <td>{song.release_date}</td>
+                    <button onClick={()=>showEdit(song)}>Edit</button>
+                    <button onClick={() =>props.deleteSong(song.id)}>Delete</button>
                 </tr>
                 );
                 })}
             </tbody>
         </table>
+        
+        {/* if "edit" is true, render UpdateSong */}
+        {edit && <UpdateSong updateSong={props.updateSong} song = {song}/>}
+        </>
     );
 }
 
