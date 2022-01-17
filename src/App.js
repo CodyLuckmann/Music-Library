@@ -5,6 +5,7 @@ import DisplayMusic from './Components/DisplayMusic/DisplayMusic';
 import SearchBar from './Components/SearchBar/SearchBar';
 import NavBar from './Components/NavBar/NavBar';
 import SongForm from './Components/CreateSong/CreateSong';
+import UpdateForm from './Components/UpdateSong/UpdateSong';
 
 function App() {
 
@@ -36,9 +37,9 @@ function App() {
     }
   }
 
-  async function updateSong(){
+  async function updateSong(pk, newSong){
 
-    let response = await axios.put('http://127.0.0.1:8000/music/int:pk/')
+    let response = await axios.put('http://127.0.0.1:8000/music/', pk, newSong)
     if(response.status ===200){
       await getAllSongs();
     }
@@ -59,6 +60,7 @@ function App() {
         <DisplayMusic songs={songs}/>
         <h3 className='center'>Add Song</h3>
         <SongForm createSong={createSong}/>
+        <UpdateForm updateSong={updateSong}/>
       </div>
       
     </div>
