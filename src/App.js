@@ -60,10 +60,13 @@ function App() {
     setSongs(response.data);
   } 
   return(
-    <div className='background'>
+    <div className='style' >
       <div>
+    
+    
         <NavBar />
       </div>
+      <h1 className='center'>Music Library</h1>
       <div className='border-box' className='table-font'>
         <SearchBar filterSongs={filterSongs}/>
         <DisplayMusic songs={songs} getAllSong={getAllSongs} updateSong={updateSong} deleteSong={deleteSong} />
