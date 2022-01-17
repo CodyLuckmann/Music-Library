@@ -18,9 +18,9 @@ const DisplayMusic = (props) => {
         <table className="table">
             <thead>
             <tr>
+                <th>Artist</th>
                 <th>Title</th>
                 <th>Album</th>
-                <th>Artist</th>
                 <th>Genre</th>
                 <th>Release Date</th>
             </tr>
@@ -29,9 +29,9 @@ const DisplayMusic = (props) => {
             {props.songs.map((song) =>{
                 return(
                 <tr>
+                    <td>{song.artist}</td>
                     <td>{song.title}</td>
                     <td>{song.album}</td>
-                    <td>{song.artist}</td>
                     <td>{song.genre}</td>
                     <td>{song.release_date}</td>
                     <button onClick={()=>showEdit(song)}>Edit</button>
