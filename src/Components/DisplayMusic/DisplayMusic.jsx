@@ -19,7 +19,7 @@ const DisplayMusic = (props) => {
                     <td>{song.album}</td>
                     <td>{song.artist}</td>
                     <td>{song.genre}</td>
-                    <td>{song.release_date}</td>
+                    <td>{song.release_date}</td><button type='submit'>Edit</button>
                 </tr>
                 );
                 })}
